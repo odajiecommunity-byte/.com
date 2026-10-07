@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRYSTAL ADMINISTRATION PORTAL</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- TOP HEADER & BRANDING -->
+  <header class="main-header no-print">
+    <div class="header-container">
+      <div class="brand-logo-container">
+        <svg class="brand-logo-svg" viewBox="0 0 100 100" width="48" height="48">
+          <circle cx="50" cy="50" r="46" fill="#0A2540" />
+          <path d="M50 15 C35 38 25 50 25 65 A25 25 0 0 0 75 65 C75 50 65 38 50 15 Z" fill="#00D4B2" opacity="0.85"/>
+          <path d="M50 28 C42 43 35 52 35 63 A15 15 0 0 0 65 63 C65 52 58 43 50 28 Z" fill="#FFFFFF"/>
+        </svg>
+        <div class="brand-text">
+          <h1>BRYSTAL</h1>
+          <span>ADMINISTRATION PORTAL</span>
+        </div>
+      </div>
+
+      <!-- MAIN NAVIGATION -->
+      <nav class="main-nav">
+        <button class="nav-btn active" onclick="switchMainView('home-view')"><i class="fa-solid fa-house"></i> Home</button>
+        <button class="nav-btn" onclick="switchMainView('dept-select-view')"><i class="fa-solid fa-building-user"></i> Department</button>
+        <button class="nav-btn" onclick="switchMainView('about-view')"><i class="fa-solid fa-circle-info"></i> About Us</button>
+        <button class="nav-btn" onclick="switchMainView('contact-view')"><i class="fa-solid fa-address-book"></i> Contact</button>
+        <a href="https://meet.google.com" target="_blank" class="nav-btn meeting-btn"><i class="fa-solid fa-video"></i> Online Meeting</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BROADCAST ANNOUNCEMENT BANNER -->
+  <div class="broadcast-bar no-print" id="broadcastBar">
+    <div class="broadcast-label"><i class="fa-solid fa-bullhorn"></i> ANNOUNCEMENT:</div>
+    <div class="broadcast-content">
+      <marquee id="broadcastText" behavior="scroll" direction="left" scrollamount="6">Welcome to Brystal Administration Portal. All operations live on Google Cloud.</marquee>
+    </div>
+  </div>
+
+  <main class="app-content">
+
+    <!-- 1. HOMEPAGE VIEW -->
+    <section id="home-view" class="view-section active">
+      <!-- HERO SLIDESHOW -->
+      <div class="hero-slideshow-container no-print">
+        <div class="slide fade">
+          <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=1200&q=80" alt="Purified Bottled Water">
+          <div class="slide-caption">Premium Purified Bottled Water Production</div>
+        </div>
+        <div class="slide fade">
+          <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=1200&q=80" alt="Refreshing Soft Drinks">
+          <div class="slide-caption">Sparkling Soft Drinks & Flavored Beverages</div>
+        </div>
+        <div class="slide fade">
+          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80" alt="Cold Beverages">
+          <div class="slide-caption">Automated High-Speed Bottling Lines</div>
+        </div>
+        <div class="slide fade">
+          <img src="https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=1200&q=80" alt="Quality Water Products">
+          <div class="slide-caption">Strict Hygiene & Quality Assurance Standards</div>
+        </div>
+        <div class="slide fade">
+          <img src="https://images.unsplash.com/photo-1560023907-5f339617ea30?auto=format&fit=crop&w=1200&q=80" alt="Distribution Logistics">
+          <div class="slide-caption">Nationwide Warehouse & Supply Logistics</div>
+        </div>
+      </div>
+
+      <div class="portal-welcome-card no-print">
+        <h2>Enterprise Administrative Portal</h2>
+        <p>Centralized cloud management system for Brystal Beverage & Packaging Operations. Seamless real-time coordination between Production, Store, Accounts, Marketing, Records, HRM, and Executive Officers.</p>
+        <div class="quick-actions-grid">
+          <div class="action-card" onclick="switchMainView('dept-select-view')">
+            <i class="fa-solid fa-lock"></i>
+            <h3>Department Portal Login</h3>
+            <p>Access your department dashboard with default or customized security credentials.</p>
+          </div>
+          <div class="action-card" onclick="openOnlineMeeting()">
+            <i class="fa-solid fa-headset"></i>
+            <h3>Live Conference Room</h3>
+            <p>Launch official high-definition online executive meeting room.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DEPARTMENT SELECTION VIEW -->
+    <section id="dept-select-view" class="view-section">
+      <div class="section-title">
+        <h2>Select Department</h2>
+        <p>Choose your designated department to proceed to authentication</p>
+      </div>
+
+      <div class="dept-grid">
+        <div class="dept-card" onclick="promptDeptPassword('MARKETING')">
+          <i class="fa-solid fa-chart-line"></i>
+          <h3>MARKETING</h3>
+          <span>Invoices & Sales Receipts</span>
+        </div>
+        <div class="dept-card" onclick="promptDeptPassword('ACCOUNTS')">
+          <i class="fa-solid fa-calculator"></i>
+          <h3>ACCOUNTS</h3>
+          <span>Financial Audit & Reports</span>
+        </div>
+        <div class="dept-card" onclick="promptDeptPassword('STORE')">
+          <i class="fa-solid fa-warehouse"></i>
+          <h3>STORE</h3>
+          <span>Inventory & Gate Pass</span>
+        </div>
+        <div class="dept-card" onclick="promptDeptPassword('RECORDS')">
+          <i class="fa-solid fa-folder-closed"></i>
+          <h3>RECORDS</h3>
+          <span>Archive & Monthly Audit</span>
+        </div>
+        <div class="dept-card" onclick="promptDeptPassword('PRODUCTION')">
+          <i class="fa-solid fa-industry"></i>
+          <h3>PRODUCTION</h3>
+          <span>Shift Logs & Outputs</span>
+        </div>
+        <div class="dept-card" onclick="promptDeptPassword('HRM')">
+          <i class="fa-solid fa-users-gear"></i>
+          <h3>HRM</h3>
+          <span>Human Resources & Admin</span>
+        </div>
+        <div class="dept-card ceo-card" onclick="promptDeptPassword('CEO')">
+          <i class="fa-solid fa-user-tie"></i>
+          <h3>CEO</h3>
+          <span>Executive Control & Oversight</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DEPARTMENT DASHBOARD VIEW -->
+    <section id="dept-dashboard-view" class="view-section">
+      <div class="dash-header no-print">
+        <div class="dash-title">
+          <h2 id="activeDeptTitle">DEPARTMENT DASHBOARD</h2>
+          <span id="activeDeptBadge" class="badge">LOGGED IN</span>
+        </div>
+        <button class="logout-btn" onclick="logoutDept()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+
+      <!-- DEPT NAV TABS CONTAINER -->
+      <div class="dept-tabs no-print" id="deptTabsContainer"></div>
+
+      <!-- DYNAMIC CONTENT CONTAINER FOR ALL DEPARTMENT PANELS -->
+      <div id="deptPanelContent" class="panel-container"></div>
+    </section>
+
+    <!-- 4. ABOUT US VIEW -->
+    <section id="about-view" class="view-section">
+      <div class="about-card">
+        <h2>About Brystal Water & Beverage Manufacturing</h2>
+        <hr>
+        <p>Established with a commitment to purity, excellence, and operational brilliance, <strong>BRYSTAL</strong> is a premier manufacturer of premium purified bottled water, carbonated soft drinks, and flavored fruit beverages. Operating under strict international health and environmental standards, our state-of-the-art automated bottling plants deliver pure refreshment to millions.</p>
+        
+        <h3>Our Core Values</h3>
+        <ul>
+          <li><strong>Uncompromised Hygiene:</strong> Advanced multi-stage reverse osmosis and micro-filtration processes.</li>
+          <li><strong>Operational Efficiency:</strong> Fully integrated cloud management connecting inventory, accounts, and shift logistics.</li>
+          <li><strong>Customer Excellence:</strong> Fast, accurate billing, dynamic transaction tracing, and verified gate clearance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. CONTACT VIEW -->
+    <section id="contact-view" class="view-section">
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <h2>Get In Touch</h2>
+          <p>Reach out to Brystal corporate headquarters or customer support.</p>
+          <div class="info-item"><i class="fa-solid fa-envelope"></i> <span>support@brystalbeverages.com</span></div>
+          <div class="info-item"><i class="fa-solid fa-phone"></i> <span>+234 800 279 7825 (BRYSTAL)</span></div>
+          <div class="info-item"><i class="fa-solid fa-location-dot"></i> <span>Brystal Industrial Estate, Plot 12 Airport Road, Nigeria</span></div>
+
+          <div class="social-links">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="https://tiktok.com" target="_blank" class="social-btn tiktok"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="https://facebook.com" target="_blank" class="social-btn facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://instagram.com" target="_blank" class="social-btn instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://wa.me/2348002797825" target="_blank" class="social-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://youtube.com" target="_blank" class="social-btn youtube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h2>Send Us A Message</h2>
+          <form onsubmit="handleContactSubmit(event)">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="4" required placeholder="Type your message here..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PASSWORD PROMPT MODAL -->
+  <div id="passwordModal" class="modal-overlay no-print">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalDeptTitle">DEPARTMENT LOGIN</h3>
+        <button class="close-modal" onclick="closePasswordModal()">&times;</button>
+      </div>
+      <form onsubmit="verifyDeptPassword(event)">
+        <div class="form-group">
+          <label>Enter Department Password</label>
+          <input type="password" id="deptPasswordInput" required placeholder="Default password: admin123" autofocus>
+        </div>
+        <p class="pass-hint">Default password for all departments is <strong>admin123</strong></p>
+        <button type="submit" class="submit-btn"><i class="fa-solid fa-key"></i> Unlock Dashboard</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- PRINT CONTAINER -->
+  <div id="printableDocumentArea" class="printable-area"></div>
+
+  <footer class="main-footer no-print">
+    <p>&copy; 2026 BRYSTAL Administration Portal. All Data Synchronized with Google Cloud Drive & Sheets.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
